@@ -9,19 +9,24 @@ from src.visualization.performance import (
 
 
 def main() -> None:
-    print("Loading data...")
+    print("---Loading data...")
     raw_df = load_dataset("data/raw/card_transdata.csv")
+    
+    # Print shape of the raw dataset
+    print(f"Raw dataset shape: {raw_df.shape}")
 
-    print("Cleaning data...")
+    print("---Cleaning data...")
     clean_df = clean_dataset(raw_df)
 
-    print("Creating EDA visuals...")
+    print(f"Cleaned dataset shape: {clean_df.shape}")
+
+    print("---Creating EDA visuals...")
     plot_eda(clean_df)
 
-    print("Training ML models...")
+    print("---Training ML models...")
     y_test, baseline_pred, knn_pred = train_models(clean_df)
 
-    print("Creating performance visuals...")
+    print("---Creating performance visuals...")
     plot_confusion_matrices(y_test, baseline_pred, knn_pred)
     plot_performance_comparison(y_test, baseline_pred, knn_pred)
     print("Done.")
