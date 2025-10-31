@@ -42,10 +42,10 @@ Some directories such as `data/external/`, `src/utils/` and `tests/` may be empt
 
 ## Running the example
 
-Install the dependencies and run the pipeline:
+Install the dependencies and run the pipeline. You should use the versions of the dependencies as specified by the requirements file:
 
 ```bash
-pip install -r requirements.txt
+conda create -n 'credit_fraud' --file requirements.txt
 python main.py
 ```
 
